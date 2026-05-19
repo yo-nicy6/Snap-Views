@@ -1,0 +1,124 @@
+/* ─── App Shell ─────────────────────────────────────────────── */
+.app-shell {
+  min-height: 100vh;
+  position: relative;
+}
+
+.app-main {
+  padding-top: var(--nav-h);
+  min-height: 100vh;
+}
+
+/* ─── Nav Bar ───────────────────────────────────────────────── */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  z-index: 100;
+  background: rgba(8, 8, 9, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.nav-logo:hover { opacity: 0.8; }
+
+.nav-logo-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--snap-yellow);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  box-shadow: 0 0 20px var(--snap-yellow-glow);
+  flex-shrink: 0;
+}
+
+.nav-logo-text span {
+  color: var(--snap-yellow);
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+  overflow: hidden;
+}
+
+.nav-link:hover { color: var(--text-primary); }
+
+.nav-link.active {
+  color: #000;
+}
+
+.nav-link-indicator {
+  position: absolute;
+  inset: 0;
+  background: var(--snap-yellow);
+  border-radius: 100px;
+  z-index: -1;
+  box-shadow: 0 0 20px var(--snap-yellow-glow);
+}
+
+/* Mobile nav */
+@media (max-width: 600px) {
+  .nav-inner { padding: 0 16px; }
+  .nav-link span { display: none; }
+  .nav-link { padding: 10px; }
+  .nav-logo-text { display: none; }
+}
+
+/* ─── Page transition ───────────────────────────────────────── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.35s ease;
+}
